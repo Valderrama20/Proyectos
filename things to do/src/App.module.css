@@ -1,0 +1,48 @@
+.container {
+    
+}
+
+.search{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px 0px;
+
+}
+
+.search input {
+    border: 1px solid rgb(217, 217, 217);
+    border-right: none;
+    background-color: white;
+    color: rgb(134, 134, 134);
+    width: 40%;
+    padding: 10px;
+    font-size: 15px;
+
+}
+
+.search button {
+    border: none;
+    height: 39px;
+    border: 1px solid rgb(217, 217, 217);
+    border-left: none;
+    background-color: white;
+}
+
+.search input:focus {
+ outline: none
+}
+
+.tasks {
+   
+}
+
+.tasks div {
+}
+
+.title {
+    display: flex;
+    border: 2px solid red;
+    width: 100%;
+}
