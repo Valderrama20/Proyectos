@@ -33,17 +33,6 @@ const App = function () {
     localStorage.setItem("task", JSON.stringify(filtrado));
   };
 
-  let modifyStatus = (id) => {
-    let arr = state.map((e) => {
-      if (e.id == id) {
-        e.state = !e.state;
-        return e;
-      } else return e;
-    });
-    setState(arr);
-    localStorage.setItem("task", JSON.stringify(arr));
-  };
-
   let clear = () => {
     setState([]);
     localStorage.setItem("task", JSON.stringify([]));
