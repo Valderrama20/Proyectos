@@ -66,7 +66,7 @@ const App = function () {
 
         <div className={style.tasks}>
           <div className={style.mapTasks}>
-            {state.map((e) => (
+            {state?.map((e) => (
               <Task
                 datos={e}
                 delet={deleteTask}
