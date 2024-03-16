@@ -15,6 +15,7 @@ const App = function () {
   };
 
   let pushTask = () => {
+    if (input == "") return;
     let tarea = {
       task: input,
       state: false,
@@ -33,31 +34,51 @@ const App = function () {
   };
 
   let modifyStatus = (id) => {
-    let arr = state.map((e)=>{
-        if(e.id == id) {
-          e.state = !e.state
-          return e
-        } else return e
-    })
-    setState(arr)
-  }
+    let arr = state.map((e) => {
+      if (e.id == id) {
+        e.state = !e.state;
+        return e;
+      } else return e;
+    });
+    setState(arr);
+    localStorage.setItem("task", JSON.stringify(arr));
+  };
 
+  let clear = () => {
+    setState([])
+    localStorage.setItem("task", JSON.stringify([]));
+
+  }
 
   return (
     <div className={style.container}>
-      <div className={style.search}>
-        <input type="text" onChange={changeInput} value={input} />
-        <button onClick={pushTask}>Crear Tarea</button>
-      </div>
-
-      <div className={style.tasks}>
-        <div className={style.title}>
-          <h4>To-do List</h4>
+      <div className={style.container2}>
+        <h1>To-Do List</h1>
+        <div className={style.search}>
+          <input
+            type="text"
+            onChange={changeInput}
+            value={input}
+            placeholder="Add your new ToDo"
+          />
+          <button onClick={pushTask}>+</button>
         </div>
-        <div className={style.maptTasks}>
-          {state.map((e) => (
-            <Task datos={e} delet={deleteTask} modify={modifyStatus} key={e.id} />
-          ))}
+
+        <div className={style.tasks}>
+          <div className={style.mapTasks}>
+            {state.map((e) => (
+              <Task
+                datos={e}
+                delet={deleteTask}
+                modify={modifyStatus}
+                key={e.id}
+              />
+            ))}
+          </div>
+        </div>
+        <div className={style.bottom}> 
+        <p>You have {state.length} pending task</p>
+         <button onClick={clear}>Clear</button>
         </div>
       </div>
     </div>
