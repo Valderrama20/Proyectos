@@ -1,14 +1,31 @@
 
 
 .container {
-    padding: 0px 10px;
+    padding-left: 10px;
+    margin: 5px 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    
+    background-color: #eeebeb;
+    border-radius: 5px;
+    overflow: auto;
+    height: 40px;
+    color: rgb(82, 81, 81);
 }
 
-.info {
-    display: flex; 
+.basura {
+    background-color: #e84e3c;
+    height: 100%;
+    width: 30px;
+    display: flex;
     align-items: center;
+    justify-content: center;
+    border-right: 5px
 }
+.basura img {
+    height: 20px;
+
+}
+
+
+

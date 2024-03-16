@@ -1,18 +1,17 @@
-import style from './task.module.css'
+import style from "./task.module.css";
+import img from "../../assets/icons8-checkmark.svg";
+import basura from "../../assets/icons8-basura.svg";
 
-const Task = function ({datos, delet, modify}) {
+const Task = function ({ datos, delet, modify }) {
   console.log(datos);
 
   return (
-    <div className={style.container}>      
-      <div className={style.info}>
-      <button onClick={() => modify(datos.id)}>{`${datos.state}`}</button>
-      <p>{datos.task}</p>
+      <div className={style.container}>
+          <i>{datos.task}</i>
+        <div className={style.basura}>
+          <img src={basura} alt="Icon basura" onClick={() => delet(datos.id)}  />
+        </div>
       </div>
-      <div>
-        <button onClick={() => delet(datos.id)}>X</button>
-      </div>
-    </div>
   );
 };
 
