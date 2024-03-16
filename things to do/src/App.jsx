@@ -77,7 +77,7 @@ const App = function () {
           </div>
         </div>
         <div className={style.bottom}>
-          <p>You have {state.length} pending task</p>
+          <p>You have {state !== null && state.length} pending task</p>
           <button onClick={clear}>Clear</button>
         </div>
       </div>
