@@ -45,10 +45,9 @@ const App = function () {
   };
 
   let clear = () => {
-    setState([])
+    setState([]);
     localStorage.setItem("task", JSON.stringify([]));
-
-  }
+  };
 
   return (
     <div className={style.container}>
@@ -66,19 +65,20 @@ const App = function () {
 
         <div className={style.tasks}>
           <div className={style.mapTasks}>
-            {state?.map((e) => (
-              <Task
-                datos={e}
-                delet={deleteTask}
-                modify={modifyStatus}
-                key={e.id}
-              />
-            ))}
+            {state !== null &&
+              state?.map((e) => (
+                <Task
+                  datos={e}
+                  delet={deleteTask}
+                  modify={modifyStatus}
+                  key={e.id}
+                />
+              ))}
           </div>
         </div>
-        <div className={style.bottom}> 
-        <p>You have {state.length} pending task</p>
-         <button onClick={clear}>Clear</button>
+        <div className={style.bottom}>
+          <p>You have {state.length} pending task</p>
+          <button onClick={clear}>Clear</button>
         </div>
       </div>
     </div>
