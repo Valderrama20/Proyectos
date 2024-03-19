@@ -7,11 +7,9 @@ function App() {
   let [operation,setOperation] = useState("")
   
   let onClick = (e) => {
-    console.log(e,"este es el e")
-    console.log(e.target,"este es el targe")
-    console.log(e.target.value, "este es el value")
     let value = e.target.value
-    setOperation(operation + value)
+    
+    if(value !== null) setOperation(operation + value)
   }
 
   let resultado = () => {
@@ -41,7 +39,7 @@ function App() {
         <label className={style.operation}>{operation.length?operation : 0}</label>
       <label className={style.result}>{result}</label>
       <div className={style.bottoms}>
-      <button onClick={clear} className={style.clear} >C</button>
+      <button onClick={clear} className={style.clear}>C</button>
      <button onClick={onClick} className={style.orenge} value="%">%</button>
      <button onClick={onClick} className={style.orenge} value="/">/</button>
      <button onClick={onClick} className={style.orenge} value="*">x</button>
