@@ -8,8 +8,8 @@ function App() {
   
   let onClick = (e) => {
     let value = e.target.value
-    
-    if(value !== null) setOperation(operation + value)
+
+    if(value !== undefined) setOperation(operation + value)
   }
 
   let resultado = () => {
