@@ -15,18 +15,15 @@
 
 .title {
     font-size: 56px;
-    font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     color: #333333;
 }
 .containerInfo div {
     font-size: 56px;
-    font-family: Arial, Helvetica, sans-serif;
     color: #333333;
 }
 
 .text{
-    font-family: Arial, Helvetica, sans-serif;
     font-size: 24px;
     margin: 20px 0;
     
@@ -80,22 +77,20 @@
     
 }
 
-.info h2{
+.container2 h2{
     font-size: 60px;
     line-height: 60px;
-    font-family: Arial, Helvetica, sans-serif;
     color: #333333;
 
     margin: 0 ;
 }
 
-.info span {
+.container2 span {
     color: #04dcb1;
 }
 
-.info p {
+.container2 p {
     color: #333333;
-    font-family: Arial, Helvetica, sans-serif;
     width: 75%;
     margin: 15px 0;
     font-size: 24px;
@@ -110,9 +105,8 @@
 .cards {
   display: flex;
   justify-content: center;
-  align-items: center;
   width: 100%;
-  padding-bottom: 100px;
+  padding-bottom: 80px;
 }
 
 .cards div {
@@ -120,7 +114,6 @@
     font-size: 20px;
     margin: 0 20px;
     color: #333333;
-    font-family: Arial, Helvetica, sans-serif;
 
   }
 
@@ -134,4 +127,37 @@
     height: 50px;
     border-radius: 15px;
   }
+  .infoTwo {
+    padding: 0 120px 80px 120px;
+    width: 70%;
+  }
+
+  .infoTwo h2{
+    font-size: 50px;
+  }
+
+  .cardsTwo {
+   display: flex;
+   justify-content: center;
+   width: 100%;
+   padding-bottom: 80px;
+  }
+
+  .cardsTwo div{
+    width: 22%;
+    text-align: center;
+    background-color: white;
+    margin: 0 15px;
+    padding: 40px 0;
+    border-radius: 20px;
+
+  }
+  .cardsTwo video{
+    height: 90px;
+  }
+  .cardsTwo p{
+    font-size: 18px;
+    width: 100%;
+  }
+
 

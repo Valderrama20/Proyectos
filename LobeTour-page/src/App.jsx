@@ -4,7 +4,11 @@ import video1 from "./assets/video1.mp4";
 import video2 from "./assets/video2.mp4";
 import video3 from "./assets/video3.mp4";
 import video4 from "./assets/video4.mp4";
+import video5 from "./assets/video5.mp4";
+import video6 from "./assets/video6.mp4";
+import video7 from "./assets/video7.mp4";
 import img1 from "./assets/img1.jpg";
+
 function App() {
   return (
     <div className={style.father}>
@@ -67,6 +71,36 @@ function App() {
               Available for Mac and Windows. Export your model and ship it on
               any platform you choose.
             </p>
+          </div>
+        </div>
+        <div className={style.infoTwo}>
+          <h2>
+            <span>Project </span>Templates
+          </h2>
+          <p>
+            Lobe will automatically select the right machine learning
+            architecture for your project. Image classification is available
+            now, with more templates coming soon.
+          </p>
+        </div>
+        <div className={style.cardsTwo}>
+          <div>
+            <video src={video5}></video>
+            <h3>Image Classification</h3>
+            <p>Label an image based on its content.</p>
+            <span>AVAILABLE NOW</span>
+          </div>
+          <div>
+            <video src={video6}></video>
+            <h3>Object Detection</h3>
+            <p>Locate an object inside of an image.</p>
+            <span>COMING SOON</span>
+          </div>
+          <div>
+            <video src={video7}></video>
+            <h3>Data Classification</h3>
+            <p>Label data in a table based on its content.</p>
+            <span>COMING SOON</span>
           </div>
         </div>
       </div>
