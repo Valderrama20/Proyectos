@@ -7,6 +7,9 @@ import video4 from "./assets/video4.mp4";
 import video5 from "./assets/video5.mp4";
 import video6 from "./assets/video6.mp4";
 import video7 from "./assets/video7.mp4";
+import video8 from "./assets/video8.mp4";
+import video9 from "./assets/video9.mp4";
+import video10 from "./assets/video10.png";
 import img1 from "./assets/img1.jpg";
 
 function App() {
@@ -102,6 +105,47 @@ function App() {
             <p>Label data in a table based on its content.</p>
             <span>COMING SOON</span>
           </div>
+        </div>
+      </div>
+
+      {/* Parte tresssss */}
+      <div className={style.container3}>
+        <div>
+          <h2>
+            Label, Train, <span>Use</span>
+          </h2>
+          <p>
+            Lobe simplifies the process of machine learning into three easy
+            steps. Collect and label your images. Train your model and
+            understand your results. Then play, improve, and export your model.
+          </p>
+        </div>
+        <video src={video8} alt="" />
+        <div>
+          <h2><span>Label</span> your images</h2>
+          <p>
+            Collect bursts using your webcam, or drag in a folder of images from
+            your computer. Then quickly label your images to create a machine
+            learning dataset.
+          </p>
+        </div>
+        <video src={video9}alt="video9" />
+        <div className={style.textRight}>
+          <h2><span>Train</span> automatically</h2>
+          <p>
+            Automatically train on your own computer without any setup or
+            configuration. Understand the strengths and weaknesses of your model
+            with live visual results.
+          </p>
+        </div>
+        <img src={video10} alt="" />
+        <div>
+          <h2><span>Use</span> your model</h2>
+          <p>
+            Use your model with your webcam or images from your computer.
+            Improve your results by giving your model feedback on its
+            predictions, then finally export it to your app.
+          </p>
         </div>
       </div>
     </div>
