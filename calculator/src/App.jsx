@@ -13,11 +13,12 @@ function App() {
       : setOperation(operation + value);
   };
 
-  let resultado = () => {
+  let calculateOperation = () => {
     try {
       let result = math.evaluate(operation);
-      if (Number.isInteger(result)) setResult(result);
-      else setResult(result.toFixed(2));
+      Number.isInteger(result)
+        ? setResult(result)
+        : setResult(result.toFixed(2));
     } catch (error) {
       alert("Verifica tu cuenta, hay un error");
     }
@@ -49,7 +50,7 @@ function App() {
     { label: "7", onClick: onClick, value: "7" },
     { label: "8", onClick: onClick, value: "8" },
     { label: "9", onClick: onClick, value: "9" },
-    { label: "=", onClick: resultado, value: "=", className: style.igual },
+    { label: "=", onClick: calculateOperation, value: "=", className: style.igual },
     { label: "🡰", onClick: back, className: style.back },
     { label: "0", onClick: onClick, value: "0" },
     { label: ".", onClick: onClick, value: "." },
