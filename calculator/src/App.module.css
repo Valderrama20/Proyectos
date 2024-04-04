@@ -1,3 +1,8 @@
+
+:root {
+  --white-color: #fff;
+}
+
 .container {
     display: flex;
     align-items: center;
@@ -5,42 +10,46 @@
     flex-direction: column;
     min-height: 100vh;
     width: 100%;
-    background: rgb(255,63,124);
-background: linear-gradient(35deg, rgba(255,63,124,1) 13%, rgba(255,123,74,1) 100%);
+    background: linear-gradient(35deg, rgba(255,63,124,1) 13%, rgba(255,123,74,1) 100%);
 }
 .calculator {
     display: flex;
+    max-width: 300px;
     flex-direction: column;
-    align-items: end;
-background: linear-gradient(18deg, rgba(25,29,92,1) 13%, rgb(73, 80, 140) 100%);
-padding: 20px 20px 20px 20px;
--webkit-box-shadow: 0px 21px 53px -6px rgba(0,0,0,0.75);
--moz-box-shadow: 0px 21px 53px -6px rgba(0,0,0,0.75);
-box-shadow: 0px 21px 53px -6px rgba(0,0,0,0.75);
-border-radius: 20px;
+    background: linear-gradient(18deg, rgba(25,29,92,1) 13%, rgb(73, 80, 140) 100%);
+    padding: 20px;
+    box-shadow: 0px 21px 53px -6px rgba(0,0,0,0.75);
+    border-radius: 20px;
 }
 
+.resultContainer {
+    width: 300px;
+    text-align: end;
+    overflow-x: auto;
+    padding: 10px 0;
+}
+
+
 .operation {
-    color: white;
-    font-size:30px;
+    color: var(--white-color);
+    font-size:25px;
 }
 
 .result {
-    color: white;
-    font-size: 60px;
-    margin-bottom: 20px;
+    color: var(--white-color);
+    font-size: 40px;
 }
 
 
-.bottoms {
-    width: 300px;
+.buttons {
+    width: 100%;
     display: grid;
     grid-template-columns: repeat(4,1fr);
     grid-gap: 10px;
    
 }
-.bottoms button {
-    color: white;
+.buttons button {
+ color: var(--white-color);
  border: none;
  border-radius: 100px;
  padding: 20px 0;
@@ -53,15 +62,13 @@ border-radius: 20px;
 .igual {
     grid-area: 4/4/6/5;
     border-radius: 20px;
-    background-color: #f72a5a !important;
-    -webkit-box-shadow: 0px 8px 29px 0px rgba(247,42,90,1);
--moz-box-shadow: 0px 8px 29px 0px rgba(247,42,90,1);
-box-shadow: 0px 8px 29px 0px rgba(247,42,90,1);
+    background-color: rgb(247,42,90) !important;
+    box-shadow: 0px 8px 29px 0px rgba(247,42,90,1);
 
 }
 
 .clear {
-  background-color: #ffff !important;  
+  background-color: var(--white-color) !important;  
   color: #eb1c4c !important
 }
 

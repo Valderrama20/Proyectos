@@ -1,77 +1,86 @@
-import { useState } from "react"
-import style from './App.module.css'
+import { useState } from "react";
+import * as math from "mathjs";
+import style from "./App.module.css";
 
 function App() {
+  let [result, setResult] = useState(0);
+  let [operation, setOperation] = useState("");
 
-  let [result,setResult] = useState(0)
-  let [operation,setOperation] = useState("")
-  
   let onClick = (e) => {
-    console.log(e,"este es el e")
-    console.log(e.target,"este es el targe")
-    console.log(e.target.value, "este es el value")
-    let value = e.target.value
-     setOperation(operation + value)
-  }
+    let value = e.target.value;
+    operation.length >= 15
+      ? alert("Se supero el numero maximo de dijitos (15)")
+      : setOperation(operation + value);
+  };
 
   let resultado = () => {
     try {
-    let result = eval(operation)
-    if(Number.isInteger(result)) setResult(result)
-    else setResult(result.toFixed(2))
+      let result = math.evaluate(operation);
+      if (Number.isInteger(result)) setResult(result);
+      else setResult(result.toFixed(2));
     } catch (error) {
-      alert("Verifica tu cuenta, hay un error")
+      alert("Verifica tu cuenta, hay un error");
     }
-    
-  }
+  };
 
-  let clear = () => {
-    setResult(0)
-    setOperation("")
-  }
+  let clearResult = () => {
+    setResult(0);
+    setOperation("");
+  };
   let back = () => {
-    if(operation.length){
-    setOperation(operation.substring(0, operation.length-1))
+    if (operation.length) {
+      setOperation(operation.substring(0, operation.length - 1));
     }
-  }
+  };
+
+  const buttonsData = [
+    { label: "C", onClick: clearResult, className: style.clear },
+    { label: "%", onClick: onClick, value: "%", className: style.orenge },
+    { label: "/", onClick: onClick, value: "/", className: style.orenge },
+    { label: "x", onClick: onClick, value: "*", className: style.orenge },
+    { label: "1", onClick: onClick, value: "1" },
+    { label: "2", onClick: onClick, value: "2" },
+    { label: "3", onClick: onClick, value: "3" },
+    { label: "+", onClick: onClick, value: "+", className: style.orenge },
+    { label: "4", onClick: onClick, value: "4" },
+    { label: "5", onClick: onClick, value: "5" },
+    { label: "6", onClick: onClick, value: "6" },
+    { label: "-", onClick: onClick, value: "-", className: style.orenge },
+    { label: "7", onClick: onClick, value: "7" },
+    { label: "8", onClick: onClick, value: "8" },
+    { label: "9", onClick: onClick, value: "9" },
+    { label: "=", onClick: resultado, value: "=", className: style.igual },
+    { label: "🡰", onClick: back, className: style.back },
+    { label: "0", onClick: onClick, value: "0" },
+    { label: ".", onClick: onClick, value: "." },
+  ];
 
   return (
     <div className={style.container}>
       <div className={style.calculator}>
-        <label className={style.operation}>{operation.length?operation : 0}</label>
-      <label className={style.result}>{result}</label>
-      <div className={style.bottoms}>
-      <button onClick={clear} className={style.clear}>C</button>
-     <button onClick={onClick} className={style.orenge} value="%">%</button>
-     <button onClick={onClick} className={style.orenge} value="/">/</button>
-     <button onClick={onClick} className={style.orenge} value="*">x</button>
-      
-     <button onClick={onClick} value="1">1</button>
-     <button onClick={onClick} value="2">2</button>
-     <button onClick={onClick} value="3">3</button>
-     <button onClick={onClick} className={style.orenge} value="+">+</button>
-
-     <button onClick={onClick} value="4">4</button>
-     <button onClick={onClick} value="5">5</button>
-     <button onClick={onClick} value="6">6</button>
-     <button onClick={onClick} className={style.orenge} value="-">-</button>
-
-     <button onClick={onClick} value="7">7</button>
-     <button onClick={onClick} value="8">8</button>
-     <button onClick={onClick} value="9">9</button>
-     <button onClick={resultado} value="=" className={style.igual}>=</button>
-
-     <button onClick={back} className={style.back}>{"🡰"}</button>
-     <button onClick={onClick} value="0">0</button>
-
-     <button onClick={onClick} value=".">.</button>
+        <div className={style.resultContainer}>
+          <label className={style.operation}>
+            {operation.length ? operation : 0}
+          </label>
+          <br />
+          <label className={style.result}>{result}</label>
+        </div>
+        <div className={style.buttons}>
+          {buttonsData.map((data) => {
+            return (
+              <button
+                onClick={data.onClick}
+                className={data.className}
+                value={data.value}
+              >
+                {data.label}
+              </button>
+            );
+          })}
+        </div>
       </div>
-      </div>
-      
-     
     </div>
-      
-  )
+  );
 }
 
-export default App
+export default App;
