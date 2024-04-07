@@ -9,8 +9,8 @@ const App = function () {
   const [parent] = useAutoAnimate();
 
   useEffect(() => {
-    let getTaskList =  JSON.parse(localStorage.getItem("task"))
-    getTaskList && setTaskList(getTaskList)
+    let getTaskList = JSON.parse(localStorage.getItem("task"));
+    getTaskList && setTaskList(getTaskList);
   }, []);
 
   let changeInput = (e) => {
@@ -32,9 +32,8 @@ const App = function () {
   };
 
   let handleKeyPress = (event) => {
-     if(event.key == 'Enter') pushTask()
-  }
-
+    if (event.key == "Enter") pushTask();
+  };
 
   let deleteTask = (id) => {
     let filtrado = taskList.filter((e) => e.id !== id);
@@ -50,27 +49,28 @@ const App = function () {
   return (
     <div className={style.container}>
       <div className={style.container2}>
-        <h1>To-Do List</h1>
-        <div className={style.search}>
-          <input
-            type="text"
-            onChange={changeInput}
-            value={input}
-            placeholder="Add your new ToDo"
-            onKeyDown={handleKeyPress}
-          />
-          <button onClick={pushTask}>+</button>
-        </div>
-
-        <div className={style.tasks}>
-          <div className={style.mapTasks} ref={parent}>
-            {taskList?.map((e) => (
+        <div className={style.top}>
+          <h1>To-Do List</h1>
+          <div className={style.search}>
+            <input
+              type="text"
+              onChange={changeInput}
+              value={input}
+              placeholder="Add your new ToDo"
+              onKeyDown={handleKeyPress}
+            />
+            <button onClick={pushTask}>+</button>
+          </div>
+          <div className={style.tasks}>
+            <div className={style.mapTasks} ref={parent}>
+              {taskList?.map((e) => (
                 <Task datos={e} delet={deleteTask} key={e.id} />
               ))}
+            </div>
           </div>
         </div>
         <div className={style.bottom}>
-          <p>You have {taskList !== null && taskList.length} pending task</p>
+          <p>You have {taskList.length} pending task</p>
           <button onClick={clearTasks}>Clear</button>
         </div>
       </div>
