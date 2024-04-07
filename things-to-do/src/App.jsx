@@ -1,13 +1,16 @@
 import { useEffect, useState } from "react";
+import { useAutoAnimate } from "@formkit/auto-animate/react";
 import style from "./App.module.css";
 import Task from "./Components/task/task";
 
 const App = function () {
-  let [state, setState] = useState([]);
+  let [taskList, setTaskList] = useState([]);
   let [input, setInput] = useState("");
+  const [parent] = useAutoAnimate();
 
   useEffect(() => {
-    setState(JSON.parse(localStorage.getItem("task")));
+    let getTaskList =  JSON.parse(localStorage.getItem("task"))
+    getTaskList && setTaskList(getTaskList)
   }, []);
 
   let changeInput = (e) => {
@@ -15,27 +18,33 @@ const App = function () {
   };
 
   let pushTask = () => {
-    if (input == "") return;
-    let tarea = {
+    if (!input.trim()) return;
+    let newTask = {
       task: input,
-      state: false,
+      taskList: false,
       id: Math.floor(Math.random() * 10000) + 1,
     };
-    setState([...state, tarea]);
+
+    setTaskList([...taskList, newTask]);
     setInput("");
 
-    localStorage.setItem("task", JSON.stringify([...state, tarea]));
+    localStorage.setItem("task", JSON.stringify([...taskList, newTask]));
   };
 
+  let handleKeyPress = (event) => {
+     if(event.key == 'Enter') pushTask()
+  }
+
+
   let deleteTask = (id) => {
-    let filtrado = state.filter((e) => e.id !== id);
-    setState(filtrado);
+    let filtrado = taskList.filter((e) => e.id !== id);
+    setTaskList(filtrado);
     localStorage.setItem("task", JSON.stringify(filtrado));
   };
 
-  let clear = () => {
-    setState([]);
-    localStorage.setItem("task", JSON.stringify([]));
+  let clearTasks = () => {
+    setTaskList([]);
+    localStorage.setItem("task", "[]");
   };
 
   return (
@@ -48,26 +57,21 @@ const App = function () {
             onChange={changeInput}
             value={input}
             placeholder="Add your new ToDo"
+            onKeyDown={handleKeyPress}
           />
           <button onClick={pushTask}>+</button>
         </div>
 
         <div className={style.tasks}>
-          <div className={style.mapTasks}>
-            {state !== null &&
-              state?.map((e) => (
-                <Task
-                  datos={e}
-                  delet={deleteTask}
-                  modify={modifyStatus}
-                  key={e.id}
-                />
+          <div className={style.mapTasks} ref={parent}>
+            {taskList?.map((e) => (
+                <Task datos={e} delet={deleteTask} key={e.id} />
               ))}
           </div>
         </div>
         <div className={style.bottom}>
-          <p>You have {state !== null && state.length} pending task</p>
-          <button onClick={clear}>Clear</button>
+          <p>You have {taskList !== null && taskList.length} pending task</p>
+          <button onClick={clearTasks}>Clear</button>
         </div>
       </div>
     </div>
