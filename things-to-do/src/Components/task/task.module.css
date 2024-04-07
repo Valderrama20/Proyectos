@@ -20,7 +20,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border-right: 5px
+    border-right: 5px;
+    cursor: pointer;
+    
 }
 .basura img {
     height: 20px;
