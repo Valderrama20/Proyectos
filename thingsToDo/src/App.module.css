@@ -1,23 +1,38 @@
+:root {
+
+    --button-color: #8d48e8;
+}
+
 .container {
     min-height: 100vh;
     display: flex;
-    align-items: center ;
+    align-items: center;
     justify-content: center;
-    background: rgb(80,156,222);
-    background: linear-gradient(0deg, rgba(80,156,222,1) 60%, rgba(100,217,207,1) 100%);
-   } 
+    background: rgb(80, 156, 222);
+    background: linear-gradient(0deg, rgba(80, 156, 222, 1) 60%, rgba(100, 217, 207, 1) 100%);
+}
 
 .container2 {
     min-width: 400px;
+    min-height: 60vh;
     margin: 30px 0;
     background-color: #ffffff;
-    min-height: 60vh  ;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+.top {
+    width: 100%;
     display: flex;
     align-items: center;
     flex-direction: column;
 }
 
-.search{
+
+
+.search {
     margin: 10px 0px;
     width: 80%;
     display: flex;
@@ -39,7 +54,7 @@
 
 .search button {
     border: none;
-    background-color: #8d48e8 ;
+    background-color: var(--button-color);
     color: white;
     font-size: 30px;
     width: 12%;
@@ -47,43 +62,46 @@
 }
 
 .search input:focus {
- outline: none
+    outline: none
 }
 
 .tasks {
-   display: flex;
-   flex-direction: column;
-   width: 80%   ;
-}
-
-
-.title {
-   width: 100%;
-   padding: 0px 20px;
-   color: white;
-   
+    display: flex;
+    flex-direction: column;
+    width: 80%;
 }
 
 .mapTasks {
     min-height: 200px;
 }
 
+
+
+.title {
+    width: 100%;
+    padding: 0px 20px;
+    color: white;
+
+}
+
+
 .bottom {
+    bottom: 10px;
     width: 100%;
     color: black;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin: 10px 0;
-    
+
+
 }
 
-.bottom button{
-    background-color: #8d48e8 ;
+.bottom button {
+    background-color: var(--button-color);
     border: none;
     color: white;
     font-weight: 600;
-    padding: 5px 10px ;
+    padding: 5px 10px;
     border-radius: 2px;
     cursor: pointer;
 }
